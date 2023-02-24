@@ -1,3 +1,7 @@
+%Glen Tsui, 400201284, tsuig
+%3SK3 Project 1
+
+%Initialize decimal display formatting and number of terms
 format long
 %Iterate through the n terms
 for n = 1:100000

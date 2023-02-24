@@ -17,7 +17,7 @@ parallel_processor_3 = quarterSum(floor(n/2)+1,floor(3*n/4));
 parallel_processor_4 = quarterSum(floor(3*n/4)+1,floor(n));
 %all values are converted to type single and totalled to give the
 %overall sum of the series
-total = single((parallel_processor_1) + (parallel_processor_2) + (parallel_processor_3) + (parallel_processor_4));
+total = single(parallel_processor_1) + single(parallel_processor_2) + single(parallel_processor_3) + single(parallel_processor_4);
 
 fprintf('Total computed sum after 1000000000 terms: %f\n', single(total));
 fprintf('Matlab reference (ground truth): %f\n', single(log(2)));
@@ -28,8 +28,8 @@ function sum = quarterSum(start,finish)
     %for the ranges of the quarter section submitted
     for i = start:finish
         %determine whether this term should be added or subtracted
-        sign = (-1.0)^(i-1);
+        sign = single((-1.0)^(i-1));
         %add the term with the sign to the running total
-        sum = single(sum + sign * (1/i));
+        sum = single((sum) + sign * (1/i));
     end
 end
